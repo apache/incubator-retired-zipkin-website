@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Server extensions and choices &middot; OpenZipkin
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/hyde.css">
+  <link rel="stylesheet" href="/public/css/zipkin.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/public/favicon.ico">
+</head>
+
+
+  <body class="theme-base-0d">
+
+    <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="">
+        <img alt="OpenZipkin logo" src="/public/img/zipkin-logo-200x119.jpg"
+             class="sidebar-logo">
+      </a>
+      
+      <a href="https://github.com/openzipkin/zipkin" target="_blank" title="openzipkin/zipkin">
+        <img class="sidebar-social-icon" alt="openzipkin/zipkin" src="/public/img/GitHub-Mark-Light-32px.png">
+      </a>
+      
+      <a href="https://twitter.com/zipkinproject" target="_blank" title="@zipkinproject">
+        <img class="sidebar-social-icon" alt="@zipkinproject" src="/public/img/TwitterLogo_white.png">
+      </a>
+      
+      <a href="https://gitter.im/openzipkin/zipkin/" target="_blank" title="openzipkin/zipkin">
+        <img class="sidebar-social-icon" alt="openzipkin/zipkin" src="/public/img/gitter.png">
+      </a>
+      
+    </div>
+
+    <nav class="sidebar-nav">
+      
+      
+        
+          
+            <a class="sidebar-nav-item" href="/">Home</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/quickstart.html">Quickstart</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/architecture.html">Architecture</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/tracers_instrumentation.html">Tracers and Instrumentation</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item active" href="/pages/extensions_choices.html">Server extensions and choices</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/community.html">Zipkin Community</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/data_model.html">Data Model</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/instrumenting.html">Instrumenting a library</a>
+          
+        
+      
+    </nav>
+    <nav>
+      <span>Apache Links</span>
+      <a class="sidebar-nav-item" href="http://www.apache.org/">Apache Software Foundation</a>
+      <a class="sidebar-nav-item" href="http://www.apache.org/licenses/">License</a>
+      <a class="sidebar-nav-item" href="http://www.apache.org/events/current-event">Events</a>
+      <a class="sidebar-nav-item" href="http://www.apache.org/foundation/thanks">Thanks</a>
+      <a class="sidebar-nav-item" href="http://www.apache.org/security">Security</a>
+      <a class="sidebar-nav-item" href="http://www.apache.org/foundation/sponsorship">Sponsor Apache</a>
+    </nav>
+  </div>
+</div>
+
+
+    <div class="content container">
+      <div class="page">
+  <h1 class="page-title">
+      
+       Server extensions and choices
+      
+  </h1>
+  <h2 id="server-extensions">Server extensions</h2>
+<p>Zipkin server bundles extension for span collection and storage. By default spans can be collected over http, Kafka or RabbitMQ transports and stored in-memory or in MySQL, Cassandra or Elasticsearch.</p>
+
+<p>The following modules add storage or transport extensions to the default server build.
+Please refer to their individual documentation for setup and configuration guides.</p>
+
+<h3 id="openzipkin-supported">OpenZipkin supported</h3>
+
+<p>The following extensions are supported by the OpenZipkin team and are hosted at
+the <a href="https://github.com/openzipkin/">OpenZipkin GitHub</a> group. You can reach out to
+the team on <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter</a> chat.</p>
+
+<table class="wide-table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Module</th>
+      <th style="text-align: left">Related product</th>
+      <th style="text-align: left">Other notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/collector-sqs">zipkin-aws collector-sqs</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/sqs/">AWS SQS</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/collector-kinesis">zipkin-aws collector-kinesis</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/kinesis/">AWS Kinesis</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/storage-elasticsearch-aws">zipkin-aws storage-elasticsearch-aws</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/elasticsearch-service/">AWS Elasticsearch Service</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/storage-xray">zipkin-aws storage-xray</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></td>
+      <td style="text-align: left">only supports sending to an XRay UDP daemon</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-gcp/tree/master/autoconfigure/storage-stackdriver">zipkin-gcp storage-stackdriver</a></td>
+      <td style="text-align: left"><a href="https://cloud.google.com/stackdriver/">GCP Stackdriver</a></td>
+      <td style="text-align: left">only supports sending to an Stackdriver</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-autoconfigure/collector-kafka08">zipkin-collector kafka08</a></td>
+      <td style="text-align: left"><a href="https://kafka.apache.org/">Apache kafka</a></td>
+      <td style="text-align: left">Only use this for Legacy Kafka 0.8-0.9 The default server includes support for Kafka 0.10+</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-autoconfigure/collector-scribe">zipkin-collector scribe</a></td>
+      <td style="text-align: left"><a href="https://github.com/facebookarchive/scribe">Scribe</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="community-supported">Community supported</h3>
+
+<table class="wide-table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Module</th>
+      <th style="text-align: left">Related product</th>
+      <th style="text-align: left">Other notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/scouter-project/zipkin-scouter">zipkin-scouter storage-scouter</a></td>
+      <td style="text-align: left"><a href="https://github.com/scouter-project/scouter">Scouter APM</a></td>
+      <td style="text-align: left">only supports sending to an Scouter</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/jeqo/zipkin-storage-kafka">zipkin-storage-kafka</a></td>
+      <td style="text-align: left"><a href="https://kafka.apache.org/">Apache kafka</a></td>
+      <td style="text-align: left">Supports aggregation and indexing of tracing data via Kafka Streams State Store.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Reporter</td>
+      <td style="text-align: left"><a href="https://github.com/ExpediaDotCom/spring-cloud-sleuth-haystack-reporter">spring-cloud-sleuth-haystack-reporter</a></td>
+      <td style="text-align: left"><a href="https://github.com/ExpediaDotCom/haystack">Haystack</a></td>
+      <td style="text-align: left">Supports sending data to Haystack, a resilient, scalable tracing and analysis system.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="alternative-servers">Alternative servers</h2>
+
+<p>The OpenZipkin team publish apis, data formats, and shared libraries that allow alternate backends to process the
+same data sent to the default Zipkin server.</p>
+
+<h3 id="community-supported-1">Community supported</h3>
+
+<p>Listed below are alternative backends that accept Zipkin format. Some use the same code as Zipkin on the same endpoints while others are on alternative endpoints or partially support features. In any case, the following aim to allow existing zipkin clients to use backends the OpenZipkin team does not support. Hence, direct questions to their respective communities.</p>
+
+<ul>
+  <li><a href="https://github.com/apache/incubator-skywalking">Apache SkyWalking</a>
+    <ul>
+      <li>When <a href="https://github.com/apache/incubator-skywalking/blob/master/docs/en/setup/backend/backend-receivers.md">zipkin-receiver</a> is enabled, Skywalking exposes the same HTTP POST endpoints Zipkin does
+        <ul>
+          <li>http port 9411 accepts <code class="highlighter-rouge">/api/v1/spans</code> (thrift, json) and <code class="highlighter-rouge">/api/v2/spans</code> (json, proto) POST requests.</li>
+          <li>this extension uses the same encoding library and same endpoints as Zipkin does.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/jaegertracing/jaeger">Jaeger</a>
+    <ul>
+      <li>When <code class="highlighter-rouge">COLLECTOR_ZIPKIN_HTTP_PORT=9411</code> is set, Jaeger exposes a partial implementation of Zipkin’s HTTP POST endpoints
+        <ul>
+          <li>http port 9411 accepts <code class="highlighter-rouge">/api/v1/spans</code> (thrift, json) and <code class="highlighter-rouge">/api/v2/spans</code> (json, but not proto) POST requests.</li>
+        </ul>
+      </li>
+      <li>When <code class="highlighter-rouge">SPAN_STORAGE_TYPE=kafka</code> and <code class="highlighter-rouge">zipkin-thrift</code>, Jaeger reads Zipkin v1 thrift encoded span messages from a Kafka topic.
+        <ul>
+          <li>Note: The above is a <a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-collector/kafka#legacy-encoding">deprecated practice</a> in Zipkin. Most instrumentation bundle multiple spans per message in v2 format.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="https://github.com/HotelsDotCom/pitchfork">Pitchfork</a>
+    <ul>
+      <li>Pitchfork exposes the same HTTP POST endpoints Zipkin does
+        <ul>
+          <li>http port 9411 accepts <code class="highlighter-rouge">/api/v1/spans</code> (thrift, json) and <code class="highlighter-rouge">/api/v2/spans</code> (json, proto) POST requests.</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p>Did we miss a server extension or alternative? Please open a pull-request to
+<a href="https://github.com/openzipkin/openzipkin.github.io">openzipkin.github.io</a>.</p>
+
+
+</div>
+
+    </div>
+
+    <footer class="content container">
+      <p class="disclaimer">
+        <strong>Disclaimer</strong><br/>
+        Apache Zipkin (incubating) is an effort undergoing incubation at The Apache Software Foundation (ASF), sponsored
+        by Incubator. Incubation is required of all newly accepted projects until a further review indicates that the
+        infrastructure, communications, and decision making process have stabilized in a manner consistent with other
+        successful ASF projects. While incubation status is not necessarily a reflection of the completeness or
+        stability of the code, it does indicate that the project has yet to be fully endorsed by the ASF.
+      </p>
+      <p class="notice">
+        &copy; 2019, the Apache Software Foundation, Apache Zipkin, Zipkin, Apache, the Apache
+        feather Logo, and the Apache Zipkin project logo are either registered trademarks or trademarks of the Apache
+        Software Foundation.
+      </p>
+    </footer>
+  </body>
+</html>

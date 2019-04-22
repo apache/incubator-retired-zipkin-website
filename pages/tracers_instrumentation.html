@@ -11,7 +11,7 @@
 
   <title>
     
-      Existing instrumentations &middot; OpenZipkin
+      Tracers and Instrumentation &middot; OpenZipkin
     
   </title>
 
@@ -74,7 +74,13 @@
       
         
           
-            <a class="sidebar-nav-item active" href="/pages/existing_instrumentations.html">Existing instrumentations</a>
+            <a class="sidebar-nav-item active" href="/pages/tracers_instrumentation.html">Tracers and Instrumentation</a>
+          
+        
+      
+        
+          
+            <a class="sidebar-nav-item" href="/pages/extensions_choices.html">Server extensions and choices</a>
           
         
       
@@ -114,7 +120,7 @@
       <div class="page">
   <h1 class="page-title">
       
-       Existing instrumentations
+       Tracers and Instrumentation
       
   </h1>
   <p>Tracing information is collected on each host using the instrumented libraries
@@ -126,11 +132,11 @@ together into spans.</p>
 Please refer to their individual documentation for setup and configuration
 guides.</p>
 
-<h3 id="openzipkin-libraries">OpenZipkin libraries</h3>
+<h3 id="openzipkin-supported">OpenZipkin supported</h3>
 
-<p>The following libraries are supported by the OpenZipkin authors and are hosted at
+<p>The following libraries are supported by the OpenZipkin team and are hosted at
 the <a href="https://github.com/openzipkin/">OpenZipkin GitHub</a> group. You can reach out to
-the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter</a> chat.</p>
+the team on <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter</a> chat.</p>
 
 <table class="wide-table">
   <thead>
@@ -211,7 +217,7 @@ the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter<
   </tbody>
 </table>
 
-<h3 id="community-libraries">Community libraries</h3>
+<h3 id="community-supported">Community supported</h3>
 
 <table class="wide-table">
   <thead>
@@ -226,6 +232,15 @@ the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter<
     </tr>
   </thead>
   <tbody>
+    <tr>
+      <td style="text-align: left">C++,Python</td>
+      <td style="text-align: left"><a href="https://github.com/Dudi119/cppKin">cppkin</a></td>
+      <td style="text-align: left">Any</td>
+      <td style="text-align: left">Http (B3), Thrift</td>
+      <td style="text-align: left">Http, Scribe</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">cpp version also available in windows.</td>
+    </tr>
     <tr>
       <td style="text-align: left">C,C++</td>
       <td style="text-align: left"><a href="https://github.com/flier/zipkin-cpp">zipkin-cpp</a></td>
@@ -283,7 +298,7 @@ the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter<
     <tr>
       <td style="text-align: left">Java</td>
       <td style="text-align: left"><a href="https://github.com/thelastpickle/cassandra-zipkin-tracing">cassandra-zipkin-tracing</a></td>
-      <td style="text-align: left"><a href="http://cassandra.apache.org">Apache Cassandra</a></td>
+      <td style="text-align: left"><a href="https://cassandra.apache.org">Apache Cassandra</a></td>
       <td style="text-align: left">CQL (B3)</td>
       <td style="text-align: left">Http, Kafka, Scribe</td>
       <td style="text-align: left">Yes</td>
@@ -408,6 +423,15 @@ the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter<
     </tr>
     <tr>
       <td style="text-align: left">Scala</td>
+      <td style="text-align: left"><a href="https://github.com/kamon-io/kamon-zipkin">kamon-zipkin</a></td>
+      <td style="text-align: left"><a href="https://doc.akka.io/docs/akka/current/index.html">akka</a>, <a href="https://doc.akka.io/docs/akka-http/current/index.html">akka-http</a>,</td>
+      <td style="text-align: left">Http (B3)</td>
+      <td style="text-align: left">Http</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Toolkit for tracing and monitoring for jvm based applications</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Scala</td>
       <td style="text-align: left"><a href="https://github.com/levkhomich/akka-tracing">akka-tracing</a></td>
       <td style="text-align: left"><a href="https://akka.io">Akka</a>, <a href="https://spray.io">Spray</a>, <a href="https://www.playframework.com">Play</a></td>
       <td style="text-align: left">Http (B3), Thrift</td>
@@ -459,6 +483,51 @@ the authors at the <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter<
       <td style="text-align: left">http, log file</td>
       <td style="text-align: left">Yes</td>
       <td style="text-align: left">Zipkin V2 client with OpenTracing API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Java</td>
+      <td style="text-align: left"><a href="https://github.com/sysco-middleware/kafka-interceptor-zipkin">kafka-interceptor-zipkin</a></td>
+      <td style="text-align: left"><a href="https://kafka.apache.org">Apache Kafka</a></td>
+      <td style="text-align: left">B3</td>
+      <td style="text-align: left">Http, Kafka</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Java 8+, meant to be used for off-the-shelf components like Kafka Connectors, KSQL or Kafka REST Proxy. Instrumentation for Kafka Clients and Kafka Streams are included as Brave instrumentation.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Go</td>
+      <td style="text-align: left"><a href="https://github.com/jcchavezs/zipkin-instrumentation-sql">zipkin-instrumentation-sql</a></td>
+      <td style="text-align: left">Any</td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">SQL Wrapper for golang database/sql</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PHP</td>
+      <td style="text-align: left"><a href="https://github.com/jcchavezs/zipkin-instrumentation-symfony">zipkin-instrumentation-symfony</a></td>
+      <td style="text-align: left"><a href="https://symfony.com/">Symfony</a></td>
+      <td style="text-align: left">B3</td>
+      <td style="text-align: left">http, log file</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">A Zipkin integration for Symfony applications</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PHP</td>
+      <td style="text-align: left"><a href="https://github.com/jcchavezs/zipkin-instrumentation-doctrine">zipkin-instrumentation-doctrine</a></td>
+      <td style="text-align: left"><a href="https://www.doctrine-project.org/">Doctrine</a></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Zipkin instrumentation for Doctrine ORM</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PHP</td>
+      <td style="text-align: left"><a href="https://github.com/jcchavezs/zipkin-instrumentation-guzzle">zipkin-instrumentation-guzzle</a></td>
+      <td style="text-align: left"><a href="http://docs.guzzlephp.org">Guzzle</a></td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left"> </td>
+      <td style="text-align: left">Zipkin instrumentation for Guzzle HTTP Client</td>
     </tr>
   </tbody>
 </table>

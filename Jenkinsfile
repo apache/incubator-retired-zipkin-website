@@ -14,6 +14,12 @@ pipeline {
 
 	stages {
 		stage('SCM Checkout') {
+			when {
+				anyOf {
+					branch 'master'
+					changeRequest target: 'master'
+				}
+			}
 			steps {
 				deleteDir()
 				checkout scm
@@ -21,6 +27,12 @@ pipeline {
 		}
 
 		stage('Check environment') {
+			when {
+				anyOf {
+					branch 'master'
+					changeRequest target: 'master'
+				}
+			}
 			steps {
 				sh 'env'
 				sh 'pwd'
@@ -33,6 +45,12 @@ pipeline {
 		}
 
 		stage('Install Jekyll') {
+			when {
+				anyOf {
+					branch 'master'
+					changeRequest target: 'master'
+				}
+			}
 			steps {
 				sh '''
 				. "${rvm_path}/scripts/rvm"
@@ -44,6 +62,12 @@ pipeline {
 		}
 
 		stage('Build site') {
+			when {
+				anyOf {
+					branch 'master'
+					changeRequest target: 'master'
+				}
+			}
 			steps {
 				sh '''
 				. "${rvm_path}/scripts/rvm"
@@ -55,6 +79,13 @@ pipeline {
 		}
 
 		stage('Publish') {
+			when {
+				branch 'master'
+			}
+			environment {
+				// GH Personal access token @abesto
+				GITUSER = credentials('2d27b827-20c2-4173-ac84-f3abc308fc88')
+			}
 			steps {
 				sh '''
 				set -xeuo pipefail
@@ -66,7 +97,7 @@ pipeline {
 				mv _site "${builddir}/"
 				ls -lR "${builddir}/_site/"
 
-				git fetch origin
+				git fetch origin asf-site:asf-site
 				git reset --hard
 				git checkout asf-site
 				git log -3
@@ -81,8 +112,8 @@ pipeline {
 				if [ -z "$(git status --porcelain)" ]; then
 					echo 'No changes to commit/push'
 				else
+					git config --local credential.helper "!p() { echo username=\\$GITUSER_USR; echo password=\\$GITUSER_PSW; }; p"
 					git commit -m "$commitmsg"
-					git pull --rebase
 					git log asf-site -3
 					git push origin asf-site
 				fi
