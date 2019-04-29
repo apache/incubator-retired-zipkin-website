@@ -16,13 +16,14 @@ pipeline {
 		stage('SCM Checkout') {
 			when {
 				anyOf {
-					branch 'master'
+//					branch 'master'
 					changeRequest target: 'master'
 				}
 			}
 			steps {
 				deleteDir()
 				checkout scm
+//				sh 'git submodule update --init --recursive'
 			}
 		}
 
