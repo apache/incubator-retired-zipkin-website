@@ -37,7 +37,7 @@ pipeline {
 			steps {
 				sh 'env'
 				sh 'pwd'
-				sh 'ls -lR'
+				sh 'ls'
 				sh 'alias'
 				sh 'git config --list --local'
 				sh 'git config --list --global'
@@ -80,9 +80,9 @@ pipeline {
 		}
 
 		stage('Publish') {
-//			when {
-//				branch 'master'
-//			}
+			when {
+				branch 'master'
+			}
 			environment {
 				// GH Personal access token @abesto
 				GITUSER = credentials('2d27b827-20c2-4173-ac84-f3abc308fc88')
@@ -96,15 +96,13 @@ pipeline {
 
 				builddir="$(mktemp -d)"
 				mv _site "${builddir}/"
-				ls "${builddir}/_site/"
+				ls -lR "${builddir}/_site/"
 
 				git fetch origin asf-site:asf-site
 				git reset --hard
 				git checkout asf-site
 				git log -3
 				git status
-				git add ./zipkin-api/*.yaml ./zipkin-api/*.proto
-				git commit -m "force adds zipkin-api" || true 
 
 				rsync -avrh --delete --exclude=".git" "${builddir}/_site/" ./
 				git status

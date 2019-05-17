@@ -142,19 +142,19 @@ for launching pre-built images. The quickest start is to run the latest image di
 
 <h2 id="java">Java</h2>
 
-<p>If you have Java 8 or higher installed, the quickest way to get started is to fetch the <a href="https://search.maven.org/remote_content?g=io.zipkin.java&amp;a=zipkin-server&amp;v=LATEST&amp;c=exec">latest release</a> as a self-contained executable jar:</p>
+<p>If you have Java 8 or higher installed, the quickest way to get started is to fetch the <a href="https://search.maven.org/remote_content?g=org.apache.zipkin&amp;a=zipkin-server&amp;v=LATEST&amp;c=exec">latest release</a> as a self-contained executable jar:</p>
 
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://zipkin.io/quickstart.sh | bash <span class="nt">-s</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl <span class="nt">-sSL</span> https://zipkin.apache.org/quickstart.sh | bash <span class="nt">-s</span>
 java <span class="nt">-jar</span> zipkin.jar
 </code></pre></div></div>
 
 <h2 id="running-from-source">Running from Source</h2>
 
-<p>Zipkin can be run from source if you are developing new features. To achieve this, you’ll need to get <a href="https://github.com/openzipkin/zipkin">Zipkin’s source</a> and build it.</p>
+<p>Zipkin can be run from source if you are developing new features. To achieve this, you’ll need to get <a href="https://github.com/apache/incubator-zipkin">Zipkin’s source</a> and build it.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># get the latest source</span>
-git clone https://github.com/openzipkin/zipkin
-<span class="nb">cd </span>zipkin
+git clone https://github.com/apache/incubator-zipkin
+<span class="nb">cd </span>incubator-zipkin
 <span class="c"># Build the server and also make its dependencies</span>
 ./mvnw <span class="nt">-DskipTests</span> <span class="nt">--also-make</span> <span class="nt">-pl</span> zipkin-server clean install
 <span class="c"># Run the server</span>
