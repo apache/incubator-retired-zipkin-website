@@ -11,7 +11,7 @@
 
   <title>
     
-      Instrumenting a library &middot; OpenZipkin
+      Instrumenting a library &middot; Apache Zipkin (incubating)
     
   </title>
 
@@ -33,12 +33,12 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="">
-        <img alt="OpenZipkin logo" src="/public/img/zipkin-logo-200x119.jpg"
+        <img alt="Zipkin logo" src="/public/img/zipkin-logo-200x119.jpg"
              class="sidebar-logo">
       </a>
       
-      <a href="https://github.com/openzipkin/zipkin" target="_blank" title="openzipkin/zipkin">
-        <img class="sidebar-social-icon" alt="openzipkin/zipkin" src="/public/img/GitHub-Mark-Light-32px.png">
+      <a href="https://github.com/apache/incubator-zipkin" target="_blank" title="apache/incubator-zipkin">
+        <img class="sidebar-social-icon" alt="apache/incubator-zipkin" src="/public/img/GitHub-Mark-Light-32px.png">
       </a>
       
       <a href="https://twitter.com/zipkinproject" target="_blank" title="@zipkinproject">
@@ -149,7 +149,7 @@ happy to help you along the way.</p>
 
 <h1 id="core-data-structures">Core data structures</h1>
 
-<p>Core data structures are documented in detail in <a href="https://github.com/openzipkin/zipkin-api/blob/master/thrift/zipkinCore.thrift">Thrift</a> comments. Here’s a high-level description to get you started:</p>
+<p>Core data structures are documented in detail in <a href="https://github.com/apache/incubator-zipkin-api/blob/master/thrift/zipkinCore.thrift">Thrift</a> comments. Here’s a high-level description to get you started:</p>
 
 <p><strong>Annotation</strong></p>
 
@@ -279,7 +279,7 @@ information for the request.</li>
 we can tell downstream services that this is a “debug” request.</li>
 </ul>
 
-<p>Check <a href="https://github.com/openzipkin/b3-propagation">here</a> for the format.</p>
+<p>Check <a href="https://github.com/apache/incubator-zipkin-b3-propagation">here</a> for the format.</p>
 
 <p><a href="https://twitter.github.io/finagle/">Finagle</a> provides mechanisms for passing this information with HTTP and Thrift
 requests. Other protocols will need to be augmented with the information for
@@ -316,7 +316,7 @@ BigBrotherBird.</p>
   <li>X-B3-Flags: “1” means debug (can be absent)</li>
 </ul>
 
-<p>For more information on B3, please see its <a href="https://github.com/openzipkin/b3-propagation">specification</a>.</p>
+<p>For more information on B3, please see its <a href="https://github.com/apache/incubator-zipkin-b3-propagation">specification</a>.</p>
 
 <p><strong>Thrift Tracing</strong></p>
 
@@ -435,7 +435,7 @@ span(context).annotate("cs")                                \/
                                              span(context).annotate("sr")
 </code></pre></div></div>
 
-<p>Here’s an example of this process using the <a href="https://github.com/openzipkin/brave/blob/master/brave/src/test/java/brave/features/async/OneWaySpanTest.java">Brave Tracer</a>:</p>
+<p>Here’s an example of this process using the <a href="https://github.com/apache/incubator-zipkin-brave/blob/master/brave/src/test/java/brave/features/async/OneWaySpanTest.java">Brave Tracer</a>:</p>
 
 <p>Client side:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add trace identifiers to the outbound span</span>
@@ -503,7 +503,7 @@ span(context).annotate("ms")                                \/
                                                           .address("ma", broker)
 </code></pre></div></div>
 
-<p>Here’s an example of this process using the <a href="https://github.com/openzipkin/brave">Brave Tracer</a>:</p>
+<p>Here’s an example of this process using the <a href="https://github.com/apache/incubator-zipkin-brave">Brave Tracer</a>:</p>
 
 <p>Producer side:</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Add trace identifiers to the outbound span</span>

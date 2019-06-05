@@ -11,7 +11,7 @@
 
   <title>
     
-      Server extensions and choices &middot; OpenZipkin
+      Server extensions and choices &middot; Apache Zipkin (incubating)
     
   </title>
 
@@ -33,12 +33,12 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <a href="">
-        <img alt="OpenZipkin logo" src="/public/img/zipkin-logo-200x119.jpg"
+        <img alt="Zipkin logo" src="/public/img/zipkin-logo-200x119.jpg"
              class="sidebar-logo">
       </a>
       
-      <a href="https://github.com/openzipkin/zipkin" target="_blank" title="openzipkin/zipkin">
-        <img class="sidebar-social-icon" alt="openzipkin/zipkin" src="/public/img/GitHub-Mark-Light-32px.png">
+      <a href="https://github.com/apache/incubator-zipkin" target="_blank" title="apache/incubator-zipkin">
+        <img class="sidebar-social-icon" alt="apache/incubator-zipkin" src="/public/img/GitHub-Mark-Light-32px.png">
       </a>
       
       <a href="https://twitter.com/zipkinproject" target="_blank" title="@zipkinproject">
@@ -131,11 +131,9 @@
 <p>The following modules add storage or transport extensions to the default server build.
 Please refer to their individual documentation for setup and configuration guides.</p>
 
-<h3 id="openzipkin-supported">OpenZipkin supported</h3>
+<h3 id="supported">Supported</h3>
 
-<p>The following extensions are supported by the OpenZipkin team and are hosted at
-the <a href="https://github.com/openzipkin/">OpenZipkin GitHub</a> group. You can reach out to
-the team on <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter</a> chat.</p>
+<p>The following extensions are supported by the Zipkin team. You can reach out to the team on <a href="https://gitter.im/openzipkin/zipkin/">Gitter</a> chat.</p>
 
 <table class="wide-table">
   <thead>
@@ -176,18 +174,6 @@ the team on <a href="https://gitter.im/openzipkin/zipkin/">Zipkin Gitter</a> cha
       <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-gcp/tree/master/autoconfigure/storage-stackdriver">zipkin-gcp storage-stackdriver</a></td>
       <td style="text-align: left"><a href="https://cloud.google.com/stackdriver/">GCP Stackdriver</a></td>
       <td style="text-align: left">only supports sending to an Stackdriver</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Collector</td>
-      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-autoconfigure/collector-kafka08">zipkin-collector kafka08</a></td>
-      <td style="text-align: left"><a href="https://kafka.apache.org/">Apache kafka</a></td>
-      <td style="text-align: left">Only use this for Legacy Kafka 0.8-0.9 The default server includes support for Kafka 0.10+</td>
-    </tr>
-    <tr>
-      <td style="text-align: left">Collector</td>
-      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-autoconfigure/collector-scribe">zipkin-collector scribe</a></td>
-      <td style="text-align: left"><a href="https://github.com/facebookarchive/scribe">Scribe</a></td>
-      <td style="text-align: left"> </td>
     </tr>
   </tbody>
 </table>
@@ -254,7 +240,7 @@ same data sent to the default Zipkin server.</p>
       </li>
       <li>When <code class="highlighter-rouge">SPAN_STORAGE_TYPE=kafka</code> and <code class="highlighter-rouge">zipkin-thrift</code>, Jaeger reads Zipkin v1 thrift encoded span messages from a Kafka topic.
         <ul>
-          <li>Note: The above is a <a href="https://github.com/openzipkin/zipkin/tree/master/zipkin-collector/kafka#legacy-encoding">deprecated practice</a> in Zipkin. Most instrumentation bundle multiple spans per message in v2 format.</li>
+          <li>Note: The above is a <a href="https://github.com/apache/incubator-zipkin/tree/master/zipkin-collector/kafka#legacy-encoding">deprecated practice</a> in Zipkin. Most instrumentation bundle multiple spans per message in v2 format.</li>
         </ul>
       </li>
     </ul>
@@ -271,7 +257,7 @@ same data sent to the default Zipkin server.</p>
 </ul>
 
 <p>Did we miss a server extension or alternative? Please open a pull-request to
-<a href="https://github.com/openzipkin/openzipkin.github.io">openzipkin.github.io</a>.</p>
+<a href="https://github.com/apache/incubator-zipkin-website">zipkin-website</a>.</p>
 
 
 </div>
