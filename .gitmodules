@@ -1,0 +1,3 @@
+[submodule "zipkin-api-source"]
+       path = zipkin-api-source
+       url = https://github.com/apache/incubator-zipkin-api
