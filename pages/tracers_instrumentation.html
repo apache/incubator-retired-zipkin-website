@@ -138,8 +138,84 @@ guides.</p>
 
 <p>The following libraries are supported by the Zipkin team. You can reach out to the team on <a href="https://gitter.im/openzipkin/zipkin/">Gitter</a> chat.</p>
 
-<p class="wide-table">| Language | Library | Framework | Propagation Supported | Transports Supported | Sampling Supported? | Other notes |
-|:———|:——–|:———-|:———————-|:———————|:——————–|:————|</p>
+<table class="wide-table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Language</th>
+      <th style="text-align: left">Library</th>
+      <th style="text-align: left">Framework</th>
+      <th style="text-align: left">Propagation Supported</th>
+      <th style="text-align: left">Transports Supported</th>
+      <th style="text-align: left">Sampling Supported?</th>
+      <th style="text-align: left">Other notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">C#</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin4net">Zipkin4net</a></td>
+      <td style="text-align: left">Asp.net core, Owin</td>
+      <td style="text-align: left">Http (B3)</td>
+      <td style="text-align: left">Any</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Go</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-go">zipkin-go</a></td>
+      <td style="text-align: left">standard Go middlewares</td>
+      <td style="text-align: left">Http (B3), gRPC (B3)</td>
+      <td style="text-align: left">Http (v2), Kafka (v2), Log</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Uses Zipkin V2 API</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Java</td>
+      <td style="text-align: left"><a href="https://github.com/apache/incubator-zipkin-brave">brave</a></td>
+      <td style="text-align: left">Jersey, RestEASY, JAXRS2, Apache HttpClient, Mysql</td>
+      <td style="text-align: left">Http (B3), gRPC (B3)</td>
+      <td style="text-align: left">Http, Kafka, Scribe</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Java 6 or higher</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">JavaScript</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-js">zipkin-js</a></td>
+      <td style="text-align: left"><a href="http://cujojs.com">cujoJS</a>, <a href="http://expressjs.com/">express</a>, <a href="http://restify.com/">restify</a></td>
+      <td style="text-align: left">Http (B3)</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-js#transports">Http, Kafka, Scribe</a></td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Uses continuation-local-storage under to hood, so you don’t have to pass around an explicit context</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Ruby</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-ruby">zipkin-ruby</a></td>
+      <td style="text-align: left"><a href="http://rack.github.io/">Rack</a></td>
+      <td style="text-align: left">Http (B3)</td>
+      <td style="text-align: left">Http, Kafka, Scribe</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">lc support. Ruby 2.0 or higher</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Scala</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-finagle">zipkin-finagle</a></td>
+      <td style="text-align: left"><a href="https://github.com/twitter/finagle">Finagle</a></td>
+      <td style="text-align: left">Http (B3), Thrift</td>
+      <td style="text-align: left">Http, Kafka, Scribe</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">Library is written in Java. Propagation is defined in Finagle itself.</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">PHP</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-php">zipkin-php</a></td>
+      <td style="text-align: left">Any</td>
+      <td style="text-align: left">B3</td>
+      <td style="text-align: left">http, log file</td>
+      <td style="text-align: left">Yes</td>
+      <td style="text-align: left">V2 native based on brave’s model, compatible with PHP 5.6 and PHP 7.x. Check <a href="https://github.com/openzipkin/zipkin-php-example">this</a> out for an example.</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="community-supported">Community supported</h3>
 

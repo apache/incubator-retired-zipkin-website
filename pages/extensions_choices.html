@@ -135,8 +135,48 @@ Please refer to their individual documentation for setup and configuration guide
 
 <p>The following extensions are supported by the Zipkin team. You can reach out to the team on <a href="https://gitter.im/openzipkin/zipkin/">Gitter</a> chat.</p>
 
-<p class="wide-table">| Type | Module | Related product | Other notes |
-|:—–|:——–|:—————-|:————|</p>
+<table class="wide-table">
+  <thead>
+    <tr>
+      <th style="text-align: left">Type</th>
+      <th style="text-align: left">Module</th>
+      <th style="text-align: left">Related product</th>
+      <th style="text-align: left">Other notes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/collector-sqs">zipkin-aws collector-sqs</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/sqs/">AWS SQS</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Collector</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/collector-kinesis">zipkin-aws collector-kinesis</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/kinesis/">AWS Kinesis</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/storage-elasticsearch-aws">zipkin-aws storage-elasticsearch-aws</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/elasticsearch-service/">AWS Elasticsearch Service</a></td>
+      <td style="text-align: left"> </td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-aws/tree/master/autoconfigure/storage-xray">zipkin-aws storage-xray</a></td>
+      <td style="text-align: left"><a href="https://aws.amazon.com/xray/">AWS X-Ray</a></td>
+      <td style="text-align: left">only supports sending to an XRay UDP daemon</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Storage</td>
+      <td style="text-align: left"><a href="https://github.com/openzipkin/zipkin-gcp/tree/master/autoconfigure/storage-stackdriver">zipkin-gcp storage-stackdriver</a></td>
+      <td style="text-align: left"><a href="https://cloud.google.com/stackdriver/">GCP Stackdriver</a></td>
+      <td style="text-align: left">only supports sending to an Stackdriver</td>
+    </tr>
+  </tbody>
+</table>
 
 <h3 id="community-supported">Community supported</h3>
 
