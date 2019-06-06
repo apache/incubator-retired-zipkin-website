@@ -16,7 +16,7 @@ pipeline {
 		stage('SCM Checkout') {
 			when {
 				anyOf {
-//					branch 'master'
+					branch 'master'
 					changeRequest target: 'master'
 				}
 			}
@@ -106,7 +106,7 @@ pipeline {
 				git status
 				cp ./zipkin-api-source/*.yaml ./zipkin-api/
 				git add ./zipkin-api/*.yaml
-				git commit -m "force adds zipkin-api" || true
+				git commit -am"Zipkin OpenApi definitions"
 
 				rsync -avrh --delete --exclude=".git" --exclude=".gitmodules" --exclude="zipkin-api-source" --exclude='zipkin-api/*.yaml' "${builddir}/_site/" ./
 				git status
