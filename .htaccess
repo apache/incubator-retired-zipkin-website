@@ -1,0 +1,3 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^zipkin.apache.org [NC,OR]
+RewriteRule ^(.*)$ https://zipkin.io/$1 [L,R=301,NC]
